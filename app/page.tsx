@@ -1,9 +1,9 @@
-import { Masonry } from "@/components/masonry";
+import { MasonryComponent } from "@/components/masonry";
 
 const Home = () => {
   return (
     <main className="container">
-      <Masonry />
+      <MasonryComponent />
     </main>
   );
 };

@@ -1,12 +1,19 @@
+"use client";
 import { Card } from "./card";
 import masonryData from "@/lib/data.json";
+import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
-export const Masonry = () => {
+export const MasonryComponent = () => {
   return (
-    <div className="masonry sm:masonry-sm md:masonry-md lg:masonry-lg my-6 space-y-6">
-      {masonryData.map((item) => (
-        <Card key={item.name} gallery={item} />
-      ))}
-    </div>
+    <ResponsiveMasonry
+      columnsCountBreakPoints={{ 375: 1, 570: 2, 900: 3, 1200: 4 }}
+      className="my-6"
+    >
+      <Masonry gutter="1.5em">
+        {masonryData.map((item) => (
+          <Card key={item.name} gallery={item} />
+        ))}
+      </Masonry>
+    </ResponsiveMasonry>
   );
 };
