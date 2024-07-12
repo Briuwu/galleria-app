@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Libre_Baskerville } from "next/font/google";
 import "./globals.css";
+import { Navbar } from "@/components/navbar";
 
 const font = Libre_Baskerville({
   weight: ["400", "700"],
@@ -21,7 +22,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={font.className}>{children}</body>
+      <body className={font.className}>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
