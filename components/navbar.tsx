@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 
 export const Navbar = () => {
   return (
-    <header className="p-6">
+    <header className="container border-b py-6">
       <nav className="flex items-center justify-between">
         <h1 className="sr-only">Galleria App</h1>
         <Image
