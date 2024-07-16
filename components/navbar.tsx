@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export const Navbar = () => {
   return (
-    <header className="container border-b py-6">
+    <header className="border-b p-6">
       <nav className="flex items-center justify-between">
         <Link href="/">
           <h1 className="sr-only">Galleria App</h1>

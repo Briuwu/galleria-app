@@ -1,6 +1,2 @@
-export type Gallery = {
-  galleryHref: string;
-  galleryName: string;
-  galleryArtistName: string;
-  galleryImg: string;
-};
+import { dataWithProgress } from "@/actions/galleries";
+export type Gallery = (typeof dataWithProgress)[0] & { href: string };

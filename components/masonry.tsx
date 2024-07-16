@@ -21,7 +21,7 @@ export const MasonryComponent = () => {
     >
       <Masonry gutter="1.5em">
         {galleries.map((params) => (
-          <Card key={params.galleryName} gallery={params} />
+          <Card key={params.name} gallery={params} />
         ))}
       </Masonry>
     </ResponsiveMasonry>

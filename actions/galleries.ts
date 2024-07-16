@@ -1,30 +1,26 @@
 import data from "@/lib/data.json";
 
+export const dataWithProgress = data.map((gallery, index) => {
+  const progressIncrement = 100 / (data.length - 1 || 1);
+  return {
+    ...gallery,
+    progress: index * progressIncrement,
+    index,
+  };
+});
+
 export const getGalleries = () => {
-  return data.map((gallery) => {
+  return dataWithProgress.map((gallery) => {
     return {
-      galleryHref: gallery.name.replace(/\s+/g, "-").toLowerCase(),
-      galleryName: gallery.name,
-      galleryArtistName: gallery.artist.name,
-      galleryImg: gallery.images.gallery,
+      href: gallery.name.replace(/\s+/g, "-").toLowerCase(),
+      ...gallery,
     };
   });
 };
 
 export const getGallery = (galleryHref: string) => {
-  return data.find(
+  return dataWithProgress.find(
     (gallery) =>
       gallery.name.replace(/\s+/g, "-").toLowerCase() === galleryHref,
   );
-};
-
-export const nextGalleryHref = (galleryHref: string) => {
-  const index = data.findIndex(
-    (gallery) =>
-      gallery.name.replace(/\s+/g, "-").toLowerCase() === galleryHref,
-  );
-
-  if (index === -1 || index === data.length - 1) return null;
-
-  return data[index + 1].name.replace(/\s+/g, "-").toLowerCase();
 };
